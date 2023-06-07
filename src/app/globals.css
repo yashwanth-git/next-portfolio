@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap");
+
 :root {
   --bgColor: #01090e;
   --bgColor2: #f4f4f4;
@@ -8,7 +10,6 @@
   --font1: "Poppins", sans-serif;
   --font2: "IBM Plex Mono", monospace;
 }
-
 *,
 *::before,
 *::after {
@@ -40,4 +41,14 @@ body {
   max-width: 1220px;
   margin: 0 auto;
   padding: 0 0.5em;
+}
+.Btn {
+  display: inline-block;
+  border: 2px solid var(--colorPrimary);
+  border-radius: 5px;
+  color: var(--colorPrimary);
+  transition: background-color var(--animDuration) ease-in-out;
+}
+.Btn:hover {
+  background-color: #0095f647;
 }

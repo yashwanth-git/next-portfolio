@@ -57,16 +57,8 @@
   z-index: 1;
   background-color: transparent;
 }
-.Btn {
-  display: inline-block;
-  border: 2px solid var(--colorPrimary);
+.Navbar__Btn {
   padding: 0.5em 1em;
-  border-radius: 5px;
-  color: var(--colorPrimary);
-  transition: background-color var(--animDuration) ease-in-out;
-}
-.Btn:hover {
-  background-color: #0095f647;
 }
 .Toggler {
   padding: 0 1em;
