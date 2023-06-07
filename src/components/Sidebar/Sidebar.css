@@ -1,0 +1,28 @@
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 13em;
+  left: 1em;
+}
+.social-icons ul {
+  list-style-type: none;
+}
+.social-icons li:not(:last-child) {
+  margin-bottom: 1em;
+}
+.social-link svg path {
+  transition: fill var(--animDuration) ease-in-out;
+}
+.change svg path {
+  fill: var(--bgColor);
+}
+.insta-link:hover svg path {
+  fill: #dd00a2;
+}
+.git-link:hover svg path {
+  fill: #7f228f;
+}
+.linked-link:hover svg path {
+  fill: #0077b5;
+}
