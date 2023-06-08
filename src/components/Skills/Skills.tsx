@@ -28,25 +28,6 @@ const Skills = () => {
       listItems: ["VS Code", "Github", "Chrome Dev Tools", "Postman"],
     },
   ];
-
-  const languages: string[] = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "SQL",
-  ];
-  const frameworks: string[] = [
-    "React",
-    "Vue",
-    "Webpack",
-    "SASS",
-    "Express",
-    "MongoDB",
-    "Jest",
-    "RTL",
-  ];
-  const tools: string[] = ["VS Code", "Github", "Chrome Dev Tools", "Postman"];
   return (
     <section className="Skills p-2" id="skills">
       <div className="container">
