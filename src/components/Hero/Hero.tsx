@@ -9,10 +9,10 @@ const Hero = () => {
             <span className="Hero__tag">
               Hello World!
               <span className="hand">
-                <img
+                <Image
                   src="/hand.webp"
-                  height="30"
-                  width="30"
+                  height={30}
+                  width={30}
                   alt="hand"
                 />
               </span>

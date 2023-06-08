@@ -53,3 +53,6 @@ body {
 .Btn:hover {
   background-color: #0095f647;
 }
+.p-2 {
+  padding: 2em 0;
+}
