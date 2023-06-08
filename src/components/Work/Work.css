@@ -1,0 +1,84 @@
+.Work {
+  color: var(--fontColorDark);
+}
+.Work h2 {
+  font-size: clamp(1.5rem, 7vw, 3rem);
+}
+.Work h2 {
+  margin-bottom: 0.6em;
+}
+.Work__Item {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-bottom: 6em;
+}
+.Work__Img,
+.Work__Content {
+  grid-row: 1/2;
+}
+.Work__Img {
+  border-radius: 6px;
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 50%);
+}
+.left .Work__Img {
+  grid-column: 2/7;
+}
+.right .Work__Img {
+  grid-column: 7/12;
+}
+.Work__Content {
+  grid-column: 6/12;
+  align-self: center;
+}
+.left .Work__Content {
+  text-align: right;
+}
+.right .Work__Content {
+  grid-column: 2/8;
+}
+.Work__Content h3 {
+  font-size: 1.85rem;
+  font-weight: 500;
+}
+.Work__Desc {
+  background-color: #ffffff;
+  padding: 1em 0.5em;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 50%);
+}
+.left .Work__Desc {
+  text-align: right;
+}
+.right .Work__Desc {
+  text-align: left;
+}
+.Work__Stack {
+  font-family: var(--font2);
+  font-size: 0.825rem;
+  margin: 1em 0;
+}
+.Work__Cta a {
+  display: inline-block;
+  transition: transform var(--animDuration) ease-in-out;
+}
+.Work__Cta a:hover {
+  transform: translateY(-3px);
+}
+.Work__Cta a:not(:last-child) {
+  margin-right: 1em;
+}
+
+@media (max-width: 475px) {
+  .Work__Item {
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column-reverse;
+  }
+  .left .Work__Content,
+  .left .Work__Desc {
+    text-align: left;
+  }
+  .Work__Img {
+    margin-top: 1em;
+  }
+}
