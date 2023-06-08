@@ -1,5 +1,33 @@
 import "./Skills.css";
 const Skills = () => {
+  type SkillsProps = {
+    heading: string;
+    listItems: string[];
+  };
+
+  const skills: SkillsProps[] = [
+    {
+      heading: "Languages",
+      listItems: ["HTML", "CSS", "JavaScript", "TypeScript", "SQL"],
+    },
+    {
+      heading: "Frameworks",
+      listItems: [
+        "React",
+        "Vue",
+        "Webpack",
+        "SASS",
+        "Express",
+        "MongoDB",
+        "Jest",
+        "RTL",
+      ],
+    },
+    {
+      heading: "Tools",
+      listItems: ["VS Code", "Github", "Chrome Dev Tools", "Postman"],
+    },
+  ];
 
   const languages: string[] = [
     "HTML",
@@ -24,30 +52,19 @@ const Skills = () => {
       <div className="container">
         <h2>Skills</h2>
         <div className="Skill__Set">
-          <div className="Skill__Card">
-            <h3>Languages:</h3>
-            <ul className="Skill__List">
-              {languages.map((language) => (
-                <li>{language}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="Skill__Card">
-            <h3>Frameworks:</h3>
-            <ul className="Skill__List">
-              {frameworks.map((framework) => (
-                <li>{framework}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="Skill__Card">
-            <h3>Tools:</h3>
-            <ul className="Skill__List">
-              {tools.map((tool) => (
-                <li>{tool}</li>
-              ))}
-            </ul>
-          </div>
+          {Object.values(skills).map((skill) => {
+            const { heading, listItems } = skill;
+            return (
+              <div className="Skill__Card">
+                <h3>{heading}</h3>
+                <ul className="Skill__List">
+                  {listItems.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
