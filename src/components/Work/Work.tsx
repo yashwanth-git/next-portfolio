@@ -15,6 +15,28 @@ const Work = () => {
   const works: WorkProps[] = [
     {
       direction: "left",
+      imgSrc: "/wordle-clone.webp",
+      altName: "Weldro Project",
+      projectName: "Weldro",
+      projectDesc:
+        "Clone of a game called Wordle which got acquired by New York Times for 1M USD",
+      projectStack: ["HTML, CSS, JS"],
+      projectGithub: "https://github.com/yashwanth-git/wordle",
+      projectLive: "https://weldro.netlify.app/",
+    },
+    {
+      direction: "right",
+      imgSrc: "/travel-advisor.webp",
+      altName: "Travel Advisor Project",
+      projectName: "Travel Advisor",
+      projectDesc:
+        "Travel Advisor is a web application that helps users to find nearby places to visit, restaurants, and hotels to stay along with weather conditions of the places.",
+      projectStack: ["React", "RapidAPI", "GoogleMapsAPI", "WeatherAPI"],
+      projectGithub: "https://github.com/yashwanth-git/travel-advisor",
+      projectLive: "",
+    },
+    {
+      direction: "left",
       imgSrc: "/palettes-hub.webp",
       altName: "Palettes Hub Project",
       projectName: "Palettes Hub",
@@ -51,28 +73,6 @@ const Work = () => {
       projectStack: ["Vue"],
       projectGithub: "https://github.com/yashwanth-git/imagize",
       projectLive: "https://imagize.netlify.app/",
-    },
-    {
-      direction: "right",
-      imgSrc: "/travel-advisor.webp",
-      altName: "Travel Advisor Project",
-      projectName: "Travel Advisor",
-      projectDesc:
-        "Travel Advisor is a web application that helps users to find nearby places to visit, restaurants, and hotels to stay along with weather conditions of the places.",
-      projectStack: ["React", "RapidAPI", "GoogleMapsAPI", "WeatherAPI"],
-      projectGithub: "https://github.com/yashwanth-git/travel-advisor",
-      projectLive: "",
-    },
-    {
-      direction: "left",
-      imgSrc: "/wordle-clone.webp",
-      altName: "Weldro Project",
-      projectName: "Weldro",
-      projectDesc:
-        "Clone of a game called Wordle which got acquired by New York Times for 1M USD",
-      projectStack: ["HTML, CSS, JS"],
-      projectGithub: "https://github.com/yashwanth-git/wordle",
-      projectLive: "https://weldro.netlify.app/",
     },
   ];
   return (
