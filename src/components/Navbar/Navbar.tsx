@@ -1,7 +1,14 @@
+"use client";
 import Link from "next/link";
+import { useRef, useState } from "react";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const togglerRef = useRef<HTMLInputElement | null>(null);
+  const [active, setActive] = useState<Boolean>(false);
+  const toggleActive = () => {
+    setActive((prev) => !prev);
+  };
   return (
     <header className="Navbar__wrapper fixed-top">
       <div className="container">
@@ -26,7 +33,11 @@ const Navbar = () => {
               />
             </svg>
           </div>
-          <div className="Toggler">
+          <div
+            className={`Toggler ${active ? "active" : ""} `}
+            ref={togglerRef}
+            onClick={toggleActive}
+          >
             <span className="line"></span>
             <span className="line"></span>
             <span className="line"></span>
