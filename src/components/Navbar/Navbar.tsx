@@ -4,16 +4,49 @@ import { useRef, useState } from "react";
 import "./Navbar.css";
 
 const Navbar = () => {
+  type NavbarProps = {
+    linkName: string;
+    linkUrl: string;
+  };
+  const navbarLinks: NavbarProps[] = [
+    {
+      linkName: "Skills",
+      linkUrl: "#skills",
+    },
+    {
+      linkName: "Work",
+      linkUrl: "#work",
+    },
+    {
+      linkName: "Contact",
+      linkUrl: "#contact",
+    },
+  ];
+  
   const togglerRef = useRef<HTMLInputElement | null>(null);
   const [active, setActive] = useState<Boolean>(false);
+  const navLinks: NodeListOf<HTMLElement> = document.querySelectorAll(".Navbar__Link");
+
   const toggleActive = () => {
     setActive((prev) => !prev);
   };
+  const scrollToTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
+ 
+  navLinks.forEach((navLink) => {
+    navLink.addEventListener("click", () => {
+      if (togglerRef.current?.classList.contains("active")) {
+        togglerRef.current?.classList.remove("active");
+      }
+    });
+  });
   return (
     <header className="Navbar__wrapper fixed-top">
       <div className="container">
         <nav className="Navbar">
-          <div className="Logo">
+          <div className="Logo" onClick={scrollToTop}>
             <svg
               width="64"
               height="64"
@@ -43,21 +76,16 @@ const Navbar = () => {
             <span className="line"></span>
           </div>
           <ul className="Navbar__List">
-            <li className="Navbar__Item">
-              <Link href="#skills" className="Navbar__Link">
-                Skills
-              </Link>
-            </li>
-            <li className="Navbar__Item">
-              <Link href="#work" className="Navbar__Link">
-                Work
-              </Link>
-            </li>
-            <li className="Navbar__Item">
-              <Link href="#contact" className="Navbar__Link">
-                Contact
-              </Link>
-            </li>
+            {Object.values(navbarLinks).map((navLink) => {
+              const { linkName, linkUrl } = navLink;
+              return (
+                <li className="Navbar__Item" key={linkUrl}>
+                  <Link href={linkUrl} className="Navbar__Link">
+                    {linkName}
+                  </Link>
+                </li>
+              );
+            })}
             <li className="Navbar__Cta">
               <Link
                 href="/assets/yashwanth_resume.pdf"
