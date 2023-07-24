@@ -14,8 +14,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <Sidebar />
         {children}
       </body>
     </html>
