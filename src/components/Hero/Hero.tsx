@@ -11,20 +11,21 @@ const Hero = () => {
   const [scrollTop, setScrollTop] = useState(0);
 
   useEffect(() => {
-    const mainElement = document.querySelector("main");
-    const socialIconsElement = document.querySelector(".social-icons");
-    const headerElement = document.querySelector("header");
+    if (typeof document !== "undefined") {
+      const mainElement = document.querySelector("main");
+      const socialIconsElement = document.querySelector(".social-icons");
+      const headerElement = document.querySelector("header");
+      if (mainElement instanceof HTMLElement) {
+        setMainEl(mainElement);
+      }
 
-    if (mainElement instanceof HTMLElement) {
-      setMainEl(mainElement);
-    }
+      if (socialIconsElement instanceof HTMLElement) {
+        setSocialIconsEl(socialIconsElement);
+      }
 
-    if (socialIconsElement instanceof HTMLElement) {
-      setSocialIconsEl(socialIconsElement);
-    }
-
-    if (headerElement instanceof HTMLElement) {
-      setHeaderEl(headerElement);
+      if (headerElement instanceof HTMLElement) {
+        setHeaderEl(headerElement);
+      }
     }
   }, []);
 
