@@ -80,7 +80,7 @@ const Hero = () => {
               <h1>I'm Yashwanth</h1>
               <p className="Hero__desc">
                 A design minded frontend developer, building things for the web.
-                Currently pursuing my Master’s in Information Systems.
+                Currently pursuing my Master&apos;s in Information Systems.
               </p>
               <div className="Hero__Cta">
                 <a
