@@ -77,7 +77,7 @@ const Hero = () => {
                   <Image src="/hand.webp" height={30} width={30} alt="hand" />
                 </span>
               </span>
-              <h1>I'm Yashwanth</h1>
+              <h1>I&apos;m Yashwanth</h1>
               <p className="Hero__desc">
                 A design minded frontend developer, building things for the web.
                 Currently pursuing my Master&apos;s in Information Systems.
