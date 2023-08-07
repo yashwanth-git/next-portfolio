@@ -1,45 +1,71 @@
 "use client";
-import "./Hero.css";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import Sidebar from "../Sidebar/Sidebar";
-import { useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
+import Sidebar from "../Sidebar/Sidebar";
+import "./Hero.css";
 const Hero = () => {
-  const mainEl: HTMLElement = document.querySelector("main") as HTMLElement;
-  const socialIconsEl: HTMLElement = document.querySelector(
-    ".social-icons"
-  ) as HTMLElement;
-  const headerEl: HTMLElement = document.querySelector("header") as HTMLElement;
-  let lastOffsetY = window.pageYOffset;
+  const [mainEl, setMainEl] = useState<HTMLElement | null>(null);
+  const [socialIconsEl, setSocialIconsEl] = useState<HTMLElement | null>(null);
+  const [headerEl, setHeaderEl] = useState<HTMLElement | null>(null);
+  const [scrollTop, setScrollTop] = useState(0);
 
-  const scrollHandler = () => {
-    console.log("hello");
-    if (window.pageYOffset > lastOffsetY) {
-      headerEl?.classList.remove("fixed-top");
-      headerEl?.classList.add("hide");
-    } else if (window.pageYOffset < 600) {
-      headerEl?.classList.remove("fixed-top");
-      headerEl?.classList.remove("hide");
-    } else {
-      headerEl?.classList.add("fixed-top");
-      headerEl?.classList.remove("hide");
-    }
-    //Fixed Social Icons
-    lastOffsetY = pageYOffset;
-    if (
-      window.pageYOffset >
-      mainEl?.offsetHeight - socialIconsEl?.offsetHeight
-    ) {
-      socialIconsEl?.classList.add("change");
-    } else {
-      socialIconsEl?.classList.remove("change");
-    }
-  };
   useEffect(() => {
-    scrollHandler();
+    const mainElement = document.querySelector("main");
+    const socialIconsElement = document.querySelector(".social-icons");
+    const headerElement = document.querySelector("header");
+
+    if (mainElement instanceof HTMLElement) {
+      setMainEl(mainElement);
+    }
+
+    if (socialIconsElement instanceof HTMLElement) {
+      setSocialIconsEl(socialIconsElement);
+    }
+
+    if (headerElement instanceof HTMLElement) {
+      setHeaderEl(headerElement);
+    }
   }, []);
+
+  useEffect(() => {
+    const handleScroll = (e: Event) => {
+      setScrollTop(
+        (document.documentElement.scrollTop || window.pageYOffset) ?? 0
+      );
+      if (window.pageYOffset > lastOffsetY) {
+        headerEl?.classList.remove("fixed-top");
+        headerEl?.classList.add("hide");
+      } else if (window.pageYOffset < 600) {
+        headerEl?.classList.remove("fixed-top");
+        headerEl?.classList.remove("hide");
+      } else {
+        headerEl?.classList.add("fixed-top");
+        headerEl?.classList.remove("hide");
+      }
+      //Fixed Social Icons
+      lastOffsetY = pageYOffset;
+      const scrollThreshold =
+        (mainEl?.offsetHeight ?? 0) - (socialIconsEl?.offsetHeight ?? 0);
+
+      const isScrolledPastThreshold =
+        socialIconsEl !== null && socialIconsEl !== undefined
+          ? window.pageYOffset > scrollThreshold
+          : false;
+
+      if (isScrolledPastThreshold) {
+        socialIconsEl?.classList.add("change");
+      } else {
+        socialIconsEl?.classList.remove("change");
+      }
+    };
+    let lastOffsetY = window.pageYOffset;
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrollTop]);
+
   return (
-    <main onScroll={scrollHandler}>
+    <main>
       <Navbar />
       <div className="Hero__wrapper">
         <div className="container">
@@ -70,8 +96,9 @@ const Hero = () => {
               <Image
                 src="/hero_image.webp"
                 alt="Yashwanth Sridharan"
-                width="500"
-                height="500"
+                width={500}
+                height={500}
+                priority
               />
             </div>
           </section>
