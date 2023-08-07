@@ -36,11 +36,11 @@ const Skills = () => {
           {Object.values(skills).map((skill) => {
             const { heading, listItems } = skill;
             return (
-              <div className="Skill__Card">
+              <div className="Skill__Card" key={heading}>
                 <h3>{heading}</h3>
                 <ul className="Skill__List">
                   {listItems.map((item) => (
-                    <li>{item}</li>
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>

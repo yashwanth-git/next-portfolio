@@ -91,7 +91,7 @@ const Work = () => {
             projectLive,
           } = work;
           return (
-            <div className={`Work__Item ${direction}`}>
+            <div className={`Work__Item ${direction}`} key={projectName}>
               <div className="Work__Img">
                 <Image src={imgSrc} alt={altName} width={500} height={320} />
               </div>
